@@ -29,7 +29,7 @@ const ForgetPassword = () => {
     const handleSubmit = async (values, { setSubmitting, resetForm }) => {
         setLoading(true); // Set loading to true when form is submitted
         try {
-            const response = await axios.post("http://localhost:3000/api/user/forgetpassword",values);
+            const response = await axios.post("https://diet-suggestion-app-backend.onrender.com/api/user/forgetpassword",values);
             toast.success(response.data.message, {
                 // Update to use response.data.message
                 position: "top-right",

@@ -14,7 +14,7 @@ const Recipes = () => {
 
     const fetchVegFoods = async () => {
         try {
-            const response = await axios.get(`http://localhost:3000/api/veg-foods`);
+            const response = await axios.get(`https://diet-suggestion-app-backend.onrender.com/api/veg-foods`);
             setVegFoods(response.data);
         } catch (error) {
             console.error('Error to Fetch Foods Data', error);

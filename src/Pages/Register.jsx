@@ -46,7 +46,7 @@ const RegisterForm = () => {
                 onSubmit={async (values, { setSubmitting }) => {
                     setLoading(true);
                     try {
-                        const response = await axios.post('http://localhost:3000/api/user/register', values);
+                        const response = await axios.post('https://diet-suggestion-app-backend.onrender.com/api/user/register', values);
                         toast.success(response.data.message, {
                             position: "top-right",
                             autoClose: 3000,

@@ -32,7 +32,7 @@ const ResetPassword = () => {
             const decodeToken = decodeURIComponent(token)
             console.log("Decoded Token:",decodeToken);
             try {
-                const response = await axios.get(`http://localhost:3000/api/user/validateresetcode/${decodeToken}`);
+                const response = await axios.get(`https://diet-suggestion-app-backend.onrender.com/api/user/validateresetcode/${decodeToken}`);
                 if (response.data.valid) {
                     setTokenValid(true);
                 } else {
@@ -75,7 +75,7 @@ const ResetPassword = () => {
 
     const handleSubmit = async (values, { setSubmitting, resetForm }) => {
         try {
-            const response = await axios.post('http://localhost:3000/api/user/resetpassword', values);
+            const response = await axios.post('https://diet-suggestion-app-backend.onrender.com/api/user/resetpassword', values);
             toast.success('Password Reset Successful', {
                 // Update to use response.data.message
                 position: "top-right",
