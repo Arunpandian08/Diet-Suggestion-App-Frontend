@@ -1,0 +1,466 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&family=Arvo&family=Protest+Riot&display=swap');
+
+.landing-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.landing-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url(https://th.bing.com/th/id/OIP.Pweij6yvAIUB_uC-usfAdAHaFE?rs=1&pid=ImgDetMain);
+  background-repeat: repeat;
+  background-size: cover;
+  overflow-y: visible;
+  filter: blur(30px);
+  z-index: -1;
+}
+
+.para {
+  color: #000000;
+  font-weight: 900;
+}
+
+h5 {
+  font: 1.5rem arvo;
+}
+
+.text-head {
+  font-family: Protest Riot;
+  color: #ffffff;
+  text-shadow: 0 0 10px #000000;
+}
+
+.para {
+  font: 1rem Tilt Neon;
+
+}
+
+@media (min-width: 700px) {
+  .landing-container {
+    height: 100vh;
+  }
+
+  .landing-page-image {
+    max-width: 30vh !important;
+  }
+}
+
+@media screen and (min-width:992px) {
+  .landing-page-image {
+    max-width: 50vh !important;
+    align-items: center;
+    margin: 0 !important;
+  }
+}
+
+@media screen and (max-width:750px) {
+  .row {
+    display: flex;
+    align-items: center;
+    width:100%;
+  }
+  .landing-container::before{
+    height:140vh !important;
+    width: 120%;
+    justify-content: center;
+    display: flex;
+  }
+  #fonts {
+    margin-top: 2rem;
+    width: 80%;
+  }
+  .lang-img {
+    max-width: 50vh !important;
+    margin-left:-4.5rem;
+  }
+}
+@media screen and (min-width:1400px) {
+  .lang-img{
+    margin-left:-0rem;
+  }
+}
+.row {
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media screen and(max-width:768px) {
+  .col-6 {
+    display: flex !important;
+    flex-direction: row reverse;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .col-6 {
+    width: 80% !important;
+  }
+}
+
+.text-head {
+  display: block;
+  font-family: "poppins" sans-serif;
+  font-size: calc(2.5rem + 1vw);
+}
+
+.landing-page-image {
+  transition: transform 1.5s ease-in;
+  transform: translateX(-130%);
+}
+
+.landing-page-image.slide-in {
+  transform: translateX(0);
+}
+
+#fonts {
+  display: flex;
+  transform: translateY(100%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+}
+
+#fonts.slide-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+@media screen and (min-width:767px) {
+  .lang-img {
+    max-width: 50vh !important;
+  }
+}
+
+@media screen and (min-width:1120px) {
+  .lang-img {
+    max-width: 80vh !important;
+  }
+}
+
+/* Css for register button  */
+
+.continue-application {
+  --color: #000000;
+  --background: #34eaa2;
+  --background-hover: #00ab6b;
+  --background-left: #2B3044;
+  --folder: #F3E9CB;
+  --folder-inner: #BEB393;
+  --paper: #FFFFFF;
+  --paper-lines: #BBC1E1;
+  --paper-behind: #E1E6F9;
+  --pencil-cap: #fff;
+  --pencil-top: #275EFE;
+  --pencil-middle: #fff;
+  --pencil-bottom: #5C86FF;
+  --shadow: rgba(13, 15, 25, .2);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 19px;
+  -webkit-tap-highlight-color: transparent;
+  padding: 17px 29px 17px 69px;
+  color: var(--color);
+  background: var(--bg, var(--background));
+}
+
+.continue-application>div {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 53px;
+  position: absolute;
+  overflow: hidden;
+  border-radius: 5px 0 0 5px;
+  background: var(--background-left);
+}
+
+.continue-application>div .folder {
+  width: 23px;
+  height: 27px;
+  position: absolute;
+  left: 15px;
+  top: 13px;
+}
+
+.continue-application>div .folder .top {
+  left: 0;
+  top: 0;
+  z-index: 2;
+  position: absolute;
+  transform: translateX(var(--fx, 0));
+  transition: transform 0.4s ease var(--fd, 0.3s);
+}
+
+.continue-application>div .folder .top svg {
+  width: 24px;
+  height: 27px;
+  display: block;
+  fill: var(--folder);
+  transform-origin: 0 50%;
+  transition: transform 0.3s ease var(--fds, 0.45s);
+  transform: perspective(120px) rotateY(var(--fr, 0deg));
+}
+
+.continue-application>div .folder:before,
+.continue-application>div .folder:after,
+.continue-application>div .folder .paper {
+  content: "";
+  position: absolute;
+  left: var(--l, 0);
+  top: var(--t, 0);
+  width: var(--w, 100%);
+  height: var(--h, 100%);
+  border-radius: 1px;
+  background: var(--b, var(--folder-inner));
+}
+
+.continue-application>div .folder:before {
+  box-shadow: 0 1.5px 3px var(--shadow), 0 2.5px 5px var(--shadow), 0 3.5px 7px var(--shadow);
+  transform: translateX(var(--fx, 0));
+  transition: transform 0.4s ease var(--fd, 0.3s);
+}
+
+.continue-application>div .folder:after,
+.continue-application>div .folder .paper {
+  --l: 1px;
+  --t: 1px;
+  --w: 21px;
+  --h: 25px;
+  --b: var(--paper-behind);
+}
+
+.continue-application>div .folder:after {
+  transform: translate(var(--pbx, 0), var(--pby, 0));
+  transition: transform 0.4s ease var(--pbd, 0s);
+}
+
+.continue-application>div .folder .paper {
+  z-index: 1;
+  --b: var(--paper);
+}
+
+.continue-application>div .folder .paper:before,
+.continue-application>div .folder .paper:after {
+  content: "";
+  width: var(--wp, 14px);
+  height: 2px;
+  border-radius: 1px;
+  transform: scaleY(0.5);
+  left: 3px;
+  top: var(--tp, 3px);
+  position: absolute;
+  background: var(--paper-lines);
+  box-shadow: 0 12px 0 0 var(--paper-lines), 0 24px 0 0 var(--paper-lines);
+}
+
+.continue-application>div .folder .paper:after {
+  --tp: 6px;
+  --wp: 10px;
+}
+
+.continue-application>div .pencil {
+  height: 2px;
+  width: 3px;
+  border-radius: 1px 1px 0 0;
+  top: 8px;
+  left: 105%;
+  position: absolute;
+  z-index: 3;
+  transform-origin: 50% 19px;
+  background: var(--pencil-cap);
+  transform: translateX(var(--pex, 0)) rotate(35deg);
+  transition: transform 0.4s ease var(--pbd, 0s);
+}
+
+.continue-application>div .pencil:before,
+.continue-application>div .pencil:after {
+  content: "";
+  position: absolute;
+  display: block;
+  background: var(--b, linear-gradient(var(--pencil-top) 55%, var(--pencil-middle) 55.1%, var(--pencil-middle) 60%, var(--pencil-bottom) 60.1%));
+  width: var(--w, 5px);
+  height: var(--h, 20px);
+  border-radius: var(--br, 2px 2px 0 0);
+  top: var(--t, 2px);
+  left: var(--l, -1px);
+}
+
+.continue-application>div .pencil:before {
+  -webkit-clip-path: polygon(0 5%, 5px 5%, 5px 17px, 50% 20px, 0 17px);
+  clip-path: polygon(0 5%, 5px 5%, 5px 17px, 50% 20px, 0 17px);
+}
+
+.continue-application>div .pencil:after {
+  --b: none;
+  --w: 3px;
+  --h: 6px;
+  --br: 0 2px 1px 0;
+  --t: 3px;
+  --l: 3px;
+  border-top: 1px solid var(--pencil-top);
+  border-right: 1px solid var(--pencil-top);
+}
+
+.continue-application:before,
+.continue-application:after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--color);
+  transform-origin: 9px 1px;
+  transform: translateX(var(--cx, 0)) scale(0.5) rotate(var(--r, -45deg));
+  top: 26px;
+  right: 16px;
+  transition: transform 0.3s;
+}
+
+.continue-application:after {
+  --r: 45deg;
+}
+
+.continue-application:hover {
+  --cx: 2px;
+  --bg: var(--background-hover);
+  --fx: -40px;
+  --fr: -60deg;
+  --fd: .15s;
+  --fds: 0s;
+  --pbx: 3px;
+  --pby: -3px;
+  --pbd: .15s;
+  --pex: -24px;
+}
+
+/* css for Login button  */
+
+.button {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  border-radius: 5px;
+  background: #34eaa2;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  box-shadow: inset 0 0 20px #121212, 0 0 50px #2B3044;
+}
+
+.button:after {
+  content: " ";
+  width: 0%;
+  height: 100%;
+  background: #02922f;
+  position: absolute;
+  transition: all 0.4s ease-in-out;
+  right: 0;
+}
+
+.button:hover::after {
+  right: auto;
+  left: 0;
+  width: 100%;
+}
+
+.button span {
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  padding: 18px 25px;
+  color: #000000;
+  font-size: 1.125em;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  z-index: 20;
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover span {
+  color: #FFFFFF;
+  animation: scaleUp 0.3s ease-in-out;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.95);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media screen and (max-width:769px) {
+  .button {
+    margin-top: 5px !important;
+    padding: 0px !important;
+  }
+
+  .button span {
+    padding: 10px;
+  }
+}
+/* .btns{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+} */
+
+.falling-leaf {
+  position: absolute;
+  top: 0;
+  left: 40%;
+  transform: translateX(-50%);
+  z-index: 1;
+  /* Make sure the leaf appears above other content */
+  animation: fallingAnimation 10s linear infinite;
+}
+
+@keyframes fallingAnimation {
+  0% {
+    top: -100px;
+    /* Starting position above the viewport */
+  }
+
+  100% {
+    top: 100px;
+    /* Ending position below the viewport */
+  }
+}
+@media screen and (max-width:767px) {
+  .falling-leaf{
+    display:none !important;
+  }
+}

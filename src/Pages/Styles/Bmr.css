@@ -1,0 +1,25 @@
+.b-container {
+    height: 100vh;
+    position: relative;
+}
+
+.b-container:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+    background-image: url(https://thumbs.dreamstime.com/z/bmi-body-mass-index-weight-loss-banner-background-bmi-body-mass-index-weight-loss-banner-background-vector-152839543.jpg);
+    background-size: cover;
+    filter: blur(10px);
+    z-index: -1;
+}
+
+.b-container {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
