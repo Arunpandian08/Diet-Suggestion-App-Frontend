@@ -24,6 +24,13 @@ const RegisterForm = () => {
         audio.play();
     };
 
+    const initialValues={
+        name: '',
+        contactNumber: '',
+        gender: '',
+        email: '',
+        password: '',
+    }
     const validationSchema = Yup.object().shape({
         name: Yup.string().required('Name is required'),
         contactNumber: Yup.number().required('Contact number is required'),
@@ -32,69 +39,63 @@ const RegisterForm = () => {
         password: Yup.string().min(6, 'Password must be at least 6 characters').required('Password is required'),
     });
 
+    const handleSubmit = async (values, { setSubmitting }) => {
+        setLoading(true);
+        try {
+            const response = await axios.post('https://diet-suggestion-app-backend.onrender.com/api/user/register', values);
+            toast.success(response.data.message, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                onOpen: successNotificationSound,
+                transition: Zoom,
+            });
+            navigate('/login');
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            if (error.response && error.response.status === 409) {
+                toast.error('User already exists.Please give an alternate email id', {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                    onOpen: errorNotificationSound,
+                    transition: Zoom,
+                });
+            } else {
+                toast.error('Error submitting form', {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                    onOpen: errorNotificationSound,
+                    transition: Zoom,
+                });
+            }
+        } finally {
+            setLoading(false);
+            setSubmitting(false);
+        }
+    }
     return (
         <div className="body">
             <Formik
-                initialValues={{
-                    name: '',
-                    contactNumber: '',
-                    gender: '',
-                    email: '',
-                    password: '',
-                }}
+                initialValues={initialValues}
                 validationSchema={validationSchema}
-                onSubmit={async (values, { setSubmitting }) => {
-                    setLoading(true);
-                    try {
-                        const response = await axios.post('https://diet-suggestion-app-backend.onrender.com/api/user/register', values);
-                        toast.success(response.data.message, {
-                            position: "top-right",
-                            autoClose: 3000,
-                            hideProgressBar: false,
-                            closeOnClick: true,
-                            pauseOnHover: true,
-                            draggable: true,
-                            progress: undefined,
-                            theme: "dark",
-                            onOpen: successNotificationSound,
-                            transition: Zoom,
-                        });
-                        navigate('/login');
-                    } catch (error) {
-                        console.error('Error submitting form:', error);
-                        if (error.response && error.response.status === 409) {
-                            toast.error('User already exists.Please give an alternate email id', {
-                                position: "top-right",
-                                autoClose: 3000,
-                                hideProgressBar: false,
-                                closeOnClick: true,
-                                pauseOnHover: true,
-                                draggable: true,
-                                progress: undefined,
-                                theme: "dark",
-                                onOpen: errorNotificationSound,
-                                transition: Zoom,
-                            });
-                        } else {
-                            toast.error('Error submitting form', {
-                                position: "top-right",
-                                autoClose: 3000,
-                                hideProgressBar: false,
-                                closeOnClick: true,
-                                pauseOnHover: true,
-                                draggable: true,
-                                progress: undefined,
-                                theme: "dark",
-                                onOpen: errorNotificationSound,
-                                transition: Zoom,
-                            });
-                        }
-                    } finally {
-                        setLoading(false);
-                        setSubmitting(false);
-                    }
-                }}
-            >
+                onSubmit={handleSubmit}>
                 {({ isSubmitting }) => (
                     <div className="register">
                         <div className="register-2">
