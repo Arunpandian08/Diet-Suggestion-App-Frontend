@@ -31,7 +31,7 @@
 }
 
 .card {
-  height: 80% !important;
+  height: 250px !important;
   box-shadow: 0 0 20px grey;
   background: white !important;
   transition: transform 0.3s ease;
